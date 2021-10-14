@@ -36,15 +36,19 @@ void main(void) {
     
     while (1) { //infinite while loop - repeat forever
         
-        while (PORTFbits.RF2 || PORTFbits.RF3); //empty while loop (wait for both buttons to be pressed)
+        while (PORTFbits.RF2 && PORTFbits.RF3); //empty while loop (wait for either button to be pressed)
         
-        if (!PORTFbits.RF2 && !PORTFbits.RF3) { //both buttons must be pressed
+        if (!PORTFbits.RF2) { //if button 1 is pressed
             
-            LATDbits.LATD7 = !LATDbits.LATD7; //toggle LED
-        
-            LATHbits.LATH3 = !LATDbits.LATD7; //set the 2 LED states to be opposite
-
-            __delay_ms(200); // call built in delay function
+            LATDbits.LATD7 = !LATDbits.LATD7; //toggle LED 1
+            
         }
+        
+        if (!PORTFbits.RF3) { //if buton 2 is pressed
+            
+            LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED 2
+                    
+        }
+        __delay_ms(200); // call built in delay function
     }
 }
