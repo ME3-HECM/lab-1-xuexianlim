@@ -41,14 +41,13 @@ void main(void) {
         if (!PORTFbits.RF2) { //if button 1 is pressed
             
             LATDbits.LATD7 = !LATDbits.LATD7; //toggle LED 1
-            
         }
         
-        if (!PORTFbits.RF3) { //if buton 2 is pressed
+        if (!PORTFbits.RF3) { //if button 2 is pressed
             
-            LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED 2
-                    
+            LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED 2 
         }
+        
         __delay_ms(200); // call built in delay function
     }
 }
