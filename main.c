@@ -36,7 +36,7 @@ void main(void) {
     
     while (1) { //infinite while loop - repeat forever
         
-        while (PORTFbits.RF2 && PORTFbits.RF3); //empty while loop (wait for button press)
+        while (PORTFbits.RF2 || PORTFbits.RF3); //empty while loop (wait for both buttons to be pressed)
         
         if (!PORTFbits.RF2 && !PORTFbits.RF3) { //both buttons must be pressed
             
